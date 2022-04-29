@@ -9,9 +9,10 @@ set -eu
 
 # Variables.
 SWITCHES="$INPUT_SWITCHES"
+EXCLUDE_SWITCHES="--exclude='.git/' --exclude='.git*' --exclude='.github/'"
 RSH="ssh -o StrictHostKeyChecking=no -p $INPUT_REMOTE_PORT $INPUT_RSH"
 LOCAL_PATH="$GITHUB_WORKSPACE/$INPUT_PATH"
 DSN="$INPUT_REMOTE_USER@$INPUT_REMOTE_HOST"
 
 # Despliegue.
-sh -c "rsync $SWITCHES -e '$RSH' $LOCAL_PATH $DSN:$INPUT_REMOTE_PATH"
+sh -c "rsync $SWITCHES $EXCLUDE_SWITCHES -e '$RSH' $LOCAL_PATH $DSN:$INPUT_REMOTE_PATH"
