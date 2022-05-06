@@ -16,3 +16,5 @@ DSN="$INPUT_REMOTE_USER@$INPUT_REMOTE_HOST"
 
 # Despliegue.
 sh -c "rsync $SWITCHES $EXCLUDE_SWITCHES -e '$RSH' $LOCAL_PATH $DSN:$INPUT_REMOTE_PATH"
+ssh -i /root/.ssh/id_rsa -tt $SSH_USER@$SSH_HOST "sudo chown -R apache:apache $LOCAL_PATH"
+ssh -i /root/.ssh/id_rsa -tt $SSH_USER@$SSH_HOST "sudo chmod 775 -R $LOCAL_PATH"
