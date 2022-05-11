@@ -9,6 +9,14 @@ inputs:
     description: 'Argumentos del shell remoto'
     required: false
     default: ''
+  owner:
+    description: 'Usuario dueño y grupo del remoto'
+    required: false
+    default: 'apache'
+  permissions:
+    description: 'Nivel de acceso del directorio remoto'
+    required: false
+    default: 755
   path:
     description: 'El directorio local'
     required: false
@@ -25,7 +33,8 @@ inputs:
     default: 22
   remote_user:
     description: 'El usuario remoto'
-    required: true
+    required: false
+    default: 'root'
   remote_key:
     description: 'La llave remota'
     required: true
