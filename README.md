@@ -8,9 +8,8 @@ Repositorio para implementar deploys mediante rsync
         uses: secco-ar/rsync-deploy@main
         with:
           switches: -avzr
-          remote_path: /var/www/html/<destino>
-          remote_host: ${{ secrets.TEST_HOST }}
-          remote_port: ${{ secrets.TEST_PORT }}
-          remote_user: ${{ secrets.TEST_USER }}
-          remote_key: ${{ secrets.TEST_DEPLOY_KEY }}
+          remote_path: ${{ secrets.LINUXQAS1_APACHE_WEBROOT }}/<destino>
+          remote_host: ${{ secrets.LINUXQAS1_IP_PUBLICO }}
+          remote_port: ${{ secrets.LINUXQAS1_PUERTO_PUBLICO }}
+          remote_key: ${{ secrets.LINUXQAS1_PRIVATEKEY_ROOT }}
 ```
